@@ -1,7 +1,5 @@
-// src/pages/Employee.jsx
+// src/components/Employee.jsx (or src/pages/Employee.jsx)
 import { Link } from "react-router-dom";
-
-
 
 export default function Employee() {
   return (
@@ -20,6 +18,7 @@ export default function Employee() {
         <h1>Available Overtime</h1>
         <p className="sub">Filter by airline and request your preferred shift.</p>
 
+        {/* Filters */}
         <div className="card">
           <div className="grid grid-2">
             <div className="control">
@@ -40,6 +39,7 @@ export default function Employee() {
           </div>
         </div>
 
+        {/* Shift cards */}
         <div className="grid grid-2" style={{ marginTop: 20 }}>
           {/* Card 1 */}
           <div className="card">
@@ -114,24 +114,32 @@ export default function Employee() {
           </div>
         </div>
 
+        {/* Requests table (now wrapped & compact) */}
         <div className="card" style={{ marginTop: 20 }}>
           <h3>Your Requests</h3>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Airline</th><th>Date</th><th>Time</th><th>Role</th><th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span className="airline">Emirates</span></td>
-                <td>16 Sep</td>
-                <td>18:00–23:00</td>
-                <td>Gate</td>
-                <td><span className="badge">Pending</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="table-wrap">
+            <table className="table compact">
+              <thead>
+                <tr>
+                  <th>Airline</th>
+                  <th>Date</th>
+                  <th className="hide-sm">Time</th>
+                  <th className="hide-sm">Role</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span className="airline">Emirates</span></td>
+                  <td>16 Sep</td>
+                  <td className="hide-sm">18:00–23:00</td>
+                  <td className="hide-sm">Gate</td>
+                  <td><span className="badge">Pending</span></td>
+                </tr>
+                {/* more rows ... */}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 

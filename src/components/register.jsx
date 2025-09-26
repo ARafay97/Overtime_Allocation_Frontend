@@ -53,6 +53,7 @@ export default function Register() {
               </select>
             </div>
             <Link className="btn" to="/login">Create account</Link>
+            <Link className="btn" to="/login">Back to Login</Link>
           </form>
         </div>
       </section>

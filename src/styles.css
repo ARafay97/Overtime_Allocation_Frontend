@@ -42,6 +42,7 @@ h1 { margin:0 0 6px; font-size:36px }
   background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
   border:1px solid var(--card-border); border-radius:var(--radius); box-shadow:var(--shadow);
   padding:18px;
+  overflow:hidden; /* ensure inner content doesn't overflow */
 }
 .card h3 { margin:0 0 12px }
 
@@ -75,3 +76,66 @@ label { display:block; font-size:14px; color:var(--muted); margin-bottom:8px }
 .kicker { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.18em }
 
 .footer { color:var(--muted); text-align:center; padding:30px 12px }
+
+/* --- Mobile responsiveness tweaks --- */
+
+/* prevent iOS zoom on inputs */
+input, select, textarea { font-size: 16px; }
+
+/* scale headings nicely on small screens */
+h1 { font-size: clamp(24px, 5vw, 36px); }
+
+/* safer spacing on phones */
+@media (max-width: 640px) {
+  .container { max-width: 100%; padding: 16px; }
+  .nav-inner { padding: 10px 16px; }
+  .hero { padding: 24px 16px; }
+  .card { padding: 14px; }
+  .row { gap: 10px; }
+  .btn { width: 100%; }
+}
+
+/* stack two-column grids on tablets/phones */
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* --- Table fixes for mobile --- */
+
+/* Wrap tables so they scroll instead of overflowing */
+.table-wrap {
+  width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  border-radius:12px;
+}
+
+/* Keep table inside the card padding */
+.card .table { margin:0; }
+
+/* Compact table spacing */
+.table.compact td, .table.compact th { padding:10px 8px; }
+
+/* Allow long text to wrap */
+.table td, .table th {
+  word-break:break-word;
+  white-space:nowrap;  /* tidy on desktop */
+}
+@media (max-width: 900px){
+  .table td, .table th { white-space:normal; } /* allow wrap on mobile */
+}
+
+/* Hide less-important columns on small screens */
+.hide-sm { display:table-cell; }
+@media (max-width:640px){
+  .hide-sm { display:none; }
+}
+
+/* Optional: smaller font on very small screens */
+@media (max-width:480px){
+  .table { font-size:14px; }
+}
+
+/* handle notches / safe areas */
+.nav { padding-top: env(safe-area-inset-top); }
+body { padding-bottom: env(safe-area-inset-bottom); }
