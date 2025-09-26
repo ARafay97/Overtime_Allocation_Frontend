@@ -26,11 +26,11 @@ export default function STLDashboard() {
               <div className="grid grid-2">
                 <div className="control">
                   <label htmlFor="date">Date</label>
-                  <input id="date" className="input" type="date" />
+                  <input id="date" className="select" type="date" />
                 </div>
                 <div className="control">
                   <label htmlFor="time">Time</label>
-                  <input id="time" className="input" type="time" />
+                  <input id="time" className="select" type="time" />
                 </div>
               </div>
 
