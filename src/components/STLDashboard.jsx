@@ -143,7 +143,7 @@ export default function STLDashboard() {
           {/* Notes */}
           <div className="card">
             <p className="kicker">Notes</p>
-            <p className="sub">This is a static prototype. Buttons don’t change data — perfect for screenshots.</p>
+            <p className="sub">This is a static prototype. Buttons don’t change data </p>
           </div>
         </div>
       </section>
